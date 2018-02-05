@@ -2,6 +2,7 @@ package com.example.aprianto.quickcashier;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,5 +46,13 @@ public class MainActivity extends AppCompatActivity  {
         list = new ArrayList<>();
         list.addAll(DataMenu.getListData());
 
+        showRecyclerMenu();
+
+    }
+
+    private void showRecyclerMenu() {
+        rvMenu.setLayoutManager(new LinearLayoutManager(this));
+        MenuRecycler menuAdapter = new MenuRecycler(this, DataMenu.getListData());
+        rvMenu.setAdapter(menuAdapter);
     }
 }
