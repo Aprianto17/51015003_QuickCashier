@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class DataMenu {
 
     public static  String[][] datamenu = new String[][]{
-            {"01", "Bakso Mercon", "25000"},
-            {"02", "Sop Iga", "40000"},
-            {"03", "Ice Buah", "20000"},
-            {"04", "Black Forest", "30000"},
-            {"05", "Ice The", "15000"},
-            {"06", "Chokolate Cinnamon", "30000"},
-            {"07", "Pisang Goreng", "20000"},
-            {"08", "Kentang Goreng", "20000"}
+            {"01", "Bakso Mercon", "m01" , "25000"},
+            {"02", "Sop Iga", "m02" , "40000"},
+            {"03", "Ice Buah", "m03" , "20000"},
+            {"04", "Black Forest", "m04" , "30000"},
+            {"05", "Ice The", "m05" , "15000"},
+            {"06", "Chokolate Cinnamon", "m06" , "30000"},
+            {"07", "Pisang Goreng", "m07" , "20000"},
+            {"08", "Kentang Goreng", "m08" , "20000"}
     } ;
 
     public static ArrayList<Menu> getListData(){
@@ -27,7 +27,8 @@ public class DataMenu {
             menu = new Menu();
             menu.setKode(datamenu[i][0]);
             menu.setNama(datamenu[i][1]);
-            menu.setHarga(Integer.valueOf(datamenu[i][2]));
+            menu.setGbr(datamenu[i][2]);
+            menu.setHarga(Integer.valueOf(datamenu[i][3]));
 
             list.add(menu);
         }
