@@ -82,7 +82,7 @@ public class MenuRecycler extends RecyclerView.Adapter<MenuRecycler.MenuHolder> 
         public void setData(Menu current, int position) {
 
             //UNTUKPENGAMBILAN GAMBAR
-            int img = context.getResources().getIdentifier("@drawable/m"+current.getKode(), null, context.getPackageName());
+            int img = context.getResources().getIdentifier("@drawable/"+current.getGbr(), null, context.getPackageName());
 
             menu_pic.setImageResource(img);
 
