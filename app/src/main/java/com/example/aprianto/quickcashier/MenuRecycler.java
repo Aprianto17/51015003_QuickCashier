@@ -64,6 +64,8 @@ public class MenuRecycler extends RecyclerView.Adapter<MenuRecycler.MenuHolder> 
         Menu current;
 
         View itemView;
+        ViewInterface viewInterface = (ViewInterface) context;
+
 
         public MenuHolder(View itemView) {
             super(itemView);
@@ -94,6 +96,29 @@ public class MenuRecycler extends RecyclerView.Adapter<MenuRecycler.MenuHolder> 
         }
 
         public void setListeners() {
+            //UNTUK MENAMPILKAN JUMLAH PESANAN
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewInterface.updateNota(current, 0);
+                }
+            });
+
+            //UNTUK MENAMBAH PESANAN
+            tb_plus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewInterface.updateNota(current, 1);
+                }
+            });
+
+            //UNTUK MENGURANGI PESANAN
+            tb_minus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewInterface.updateNota(current, -1);
+                }
+            });
 
         }
     }
