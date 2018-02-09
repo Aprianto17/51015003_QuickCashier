@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements ViewInterface  {
 
     private RecyclerView rvMenu;
     private ArrayList<Menu> list;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity  {
 
     private TextView tvTotal, tvListJmlh, tvListMenu, tvListHarga;
     private Button btBayar;
+
+    private Nota nota;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,34 @@ public class MainActivity extends AppCompatActivity  {
         list = new ArrayList<>();
         list.addAll(DataMenu.getListData());
 
+        nota = new Nota();
+
         showRecyclerMenu();
 
     }
+
+    @Override
+    public void updateNota(Menu menu, int inc) {
+        NotaItem item = new NotaItem();
+
+        item.setKode(menu.getKode());
+        item.setNama(menu.getNama());
+        item.setHarga(menu.getHarga());
+
+        nota.addItem(item, inc);
+        tvTotal.setText(format.format(nota.getTotalHarga()));
+
+        tvListJmlh.setText(nota.getCurrent().getQuantity().toString());
+        tvListMenu.setText(nota.getCurrent().getNama());
+        tvListHarga.setText(format.format(nota.getCurrent().getJumlahHarga()));
+
+        Log.e(nota.getTotalHarga().toString(),"ttl");
+
+        Log.e(nota.getCurrent().getQuantity().toString(),"Jumlh");
+        Log.e(nota.getCurrent().getNama(),"Nama");
+        Log.e(nota.getCurrent().getJumlahHarga().toString(),"Harga");
+    }
+
 
     private void showRecyclerMenu() {
         rvMenu.setLayoutManager(new LinearLayoutManager(this));
