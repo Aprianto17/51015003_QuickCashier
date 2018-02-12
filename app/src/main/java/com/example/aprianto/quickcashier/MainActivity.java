@@ -1,10 +1,12 @@
 package com.example.aprianto.quickcashier;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,6 +26,24 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
     private Button btBayar;
 
     private Nota nota;
+
+
+    //menu
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+    //Daftar menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profil) {
+            startActivity(new Intent(MainActivity.this, MainActivity.class));
+            finish();
+        }
+        return true;
+    }
+
 
 
     @Override
