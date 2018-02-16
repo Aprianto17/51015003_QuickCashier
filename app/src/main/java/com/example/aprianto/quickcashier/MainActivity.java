@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -73,6 +74,17 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
         nota = new Nota();
 
         showRecyclerMenu();
+
+
+        btBayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BayarActivity.class);
+                intent.putExtra("nota",nota);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
