@@ -11,52 +11,43 @@
     tools:context="com.example.aprianto.quickcashier.BayarActivity">
 
     <LinearLayout
+        android:background="#3c5bc1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:textColor="#fff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rp "
-            android:textSize="20dp"/>
-
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:orientation="vertical">
         <TextView
             android:id="@+id/tvTtl"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#3c5bc1"
-            android:inputType="numberDecimal"
-            android:textColor="@android:color/white"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:textColor="#fff"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rp "
-            android:textSize="20dp"/>
-
+            android:textColor="@android:color/white" />
         <TextView
+            android:gravity="center"
             android:id="@+id/tb0"
-            android:background="#3c5bc1"
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textSize="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:inputType="numberDecimal"/>
 
     </LinearLayout>
+
+    <Button
+        android:onClick="bt1"
+        android:id="@+id/tb1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/u100000" />
 
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#3c5bc1"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -68,32 +59,21 @@
             <Button
                 android:layout_weight="5"
                 android:textColor="#3c5bc1"
-                android:background="@drawable/u100000"
-                android:onClick="bt1"
-                android:id="@+id/tb1"
-                android:layout_width="170dp"
+                android:background="@drawable/u50000"
+                android:onClick="bt2"
+                android:id="@+id/tb2"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:textSize="20sp" />
 
             <Button
                 android:layout_weight="5"
                 android:textColor="#3c5bc1"
-                android:background="@drawable/u20000"
+                android:background="@drawable/u10000"
                 android:layout_marginTop="5dp"
-                android:onClick="bt3"
-                android:id="@+id/tb3"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:textSize="20sp" />
-
-            <Button
-                android:layout_weight="5"
-                android:textColor="#3c5bc1"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/u5000"
-                android:onClick="bt5"
-                android:id="@+id/tb5"
-                android:layout_width="170dp"
+                android:onClick="bt4"
+                android:id="@+id/tb4"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:textSize="20sp" />
 
@@ -101,26 +81,12 @@
                 android:layout_weight="5"
                 android:textColor="#3c5bc1"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/u1000"
-                android:onClick="bt7"
-                android:id="@+id/tb7"
-                android:layout_width="170dp"
+                android:background="@drawable/u2000"
+                android:onClick="bt6"
+                android:id="@+id/tb6"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:textSize="20sp" />
-
-            <Button
-                android:layout_weight="5"
-                android:textColor="#3c5bc1"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/white"
-                android:onClick="bt9"
-                android:id="@+id/tb9"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:textSize="20sp"
-                android:text="Rp 200" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -132,10 +98,10 @@
             <Button
                 android:layout_weight="5"
                 android:textColor="#3c5bc1"
-                android:background="@drawable/u50000"
-                android:onClick="bt2"
-                android:id="@+id/tb2"
-                android:layout_width="170dp"
+                android:background="@drawable/u20000"
+                android:onClick="bt3"
+                android:id="@+id/tb3"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:textSize="20sp" />
 
@@ -143,45 +109,21 @@
                 android:layout_weight="5"
                 android:textColor="#3c5bc1"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/u10000"
-                android:onClick="bt4"
-                android:id="@+id/tb4"
-                android:layout_width="170dp"
+                android:background="@drawable/u5000"
+                android:onClick="bt5"
+                android:id="@+id/tb5"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:textSize="20sp" />
 
             <Button
                 android:layout_weight="5"
-                android:id="@+id/tb6"
-                android:layout_width="170dp"
+                android:onClick="bt7"
+                android:id="@+id/tb7"
+                android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/u2000"
-                android:onClick="bt6"
-                android:textColor="#3c5bc1"
-                android:textSize="20sp" />
-
-            <Button
-                android:layout_weight="5"
-                android:id="@+id/tb8"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/white"
-                android:onClick="bt8"
-                android:text="Rp 500"
-                android:textColor="#3c5bc1"
-                android:textSize="20sp" />
-
-            <Button
-                android:layout_weight="5"
-                android:id="@+id/tb10"
-                android:layout_width="170dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/white"
-                android:onClick="bt10"
-                android:text="Rp 100"
+                android:background="@drawable/u1000"
                 android:textColor="#3c5bc1"
                 android:textSize="20sp" />
 
@@ -189,18 +131,63 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingRight="2dp"
+        android:paddingLeft="2dp"
+        android:paddingBottom="2dp"
+        android:background="#3c5bc1"
+        android:orientation="horizontal">
+
+        <Button
+            android:onClick="bt8"
+            android:id="@+id/tb8"
+            android:background="@drawable/u500"
+            android:layout_weight="3"
+            android:textColor="#3c5bc1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="4dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:background="@drawable/u200"
+            android:layout_weight="3"
+            android:textColor="#3c5bc1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="4dp"
+            android:onClick="bt9"
+            android:id="@+id/tb9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:background="@drawable/u100"
+            android:layout_weight="3"
+            android:textColor="#3c5bc1"
+            android:layout_marginTop="5dp"
+            android:onClick="bt10"
+            android:id="@+id/tb10"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
     <Button
+        android:onClick="Nota"
+        android:id="@+id/btNota"
+        android:layout_marginTop="4dp"
         android:textColor="#3c5bc1"
         android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text="Nota"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginRight="4dp"
-        android:layout_marginLeft="4dp"/>
-
-
-
+        android:textStyle="bold" />
 
 </LinearLayout>

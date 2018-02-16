@@ -5,16 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class BayarActivity extends AppCompatActivity implements ViewInterface  {
+public class BayarActivity extends AppCompatActivity   {
 
-    public TextView tvTtl ;
+    public TextView tvTtl, tvBayar ;
+    private Button bt_nota;
+
     Nota nota;
-    String ttl;
 
     Integer u1 = 0 ;
     Integer u2 = 0 ;
@@ -38,12 +40,13 @@ public class BayarActivity extends AppCompatActivity implements ViewInterface  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bayar);
 
-        nota = getIntent().getParcelableExtra("nota");
+        nota = Singleton.getInstance().getNota();
+//        nota = getIntent().getParcelableExtra("nota");
 
         tvTtl = (TextView) findViewById(R.id.tvTtl);
-//        tvTtl.setText(format.format(0));
-        tvTtl.setText(nota.getTotalHarga() + "");
+        bt_nota = (Button) findViewById(R.id.btNota);
 
+        tvTtl.setText("Rp "+format.format(nota.getTotalHarga()));
         Log.e(nota.getTotalHarga().toString(),"Ttl");
 
     }
@@ -101,14 +104,19 @@ public class BayarActivity extends AppCompatActivity implements ViewInterface  {
     public void play(Integer number) {
 
         TextView tvBayar = (TextView) findViewById(R.id.tb0);
-        tvBayar.setText(format.format(""+ (u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100)));
+        tvBayar.setText(format.format((u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100)));
         Log.e(""+ (u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100),"Ttl");
     }
 
-    @Override
-    public void updateNota(Menu menu, int increment) {
-        tvTtl.setText(format.format(nota.getTotalHarga()));
-        Log.e(nota.getTotalHarga().toString(),"Ttl");
+    public void Nota(View view) {
+
+        Intent intent = new Intent(BayarActivity.this, BayarActivity.class);
+
+        intent.putExtra("Bayar", Integer.valueOf(u1*100000 + u2*50000 + u3*20000 + u4*10000 + u5*5000 + u6*2000 + u7*1000 + u8*500 + u9*200 + u10*100));
+
+        Singleton.getInstance().setNota(nota);
+
+        startActivity(intent);
     }
 }
 

@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BayarActivity.class);
-                intent.putExtra("nota",nota);
+//                intent.putExtra("nota",nota);
+                Singleton.getInstance().setNota(nota);
+
                 startActivity(intent);
             }
         });
