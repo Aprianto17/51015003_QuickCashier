@@ -50,6 +50,8 @@ public class NotaActivity extends AppCompatActivity {
 
         tvKembali.setText("Rp "+format.format(kembali));
 
+        tvBayar.setText("Rp "+format.format(Bayar));
+
         btHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
 
     private Nota nota;
 
+    Integer ttl;
 
     //menu
     @Override
@@ -79,11 +81,19 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
         btBayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BayarActivity.class);
+                ttl = nota.getTotalHarga();
+                //Mencegah Ada data null
+                if (ttl == null) {
+                    Toast.makeText(getApplicationContext(), "Minumal Pembelian 1 item", Toast.LENGTH_SHORT).show();
+                } else if (ttl == 0){
+                    Toast.makeText(getApplicationContext(), "Minumal Pembelian 1 item", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, BayarActivity.class);
 //                intent.putExtra("nota",nota);
-                Singleton.getInstance().setNota(nota);
+                    Singleton.getInstance().setNota(nota);
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
 
