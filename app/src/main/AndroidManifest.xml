@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BayarActivity"></activity>
+        <activity android:name=".BayarActivity" />
+        <activity android:name=".NotaActivity"></activity>
     </application>
 
 </manifest>

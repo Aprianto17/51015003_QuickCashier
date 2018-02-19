@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -30,6 +31,8 @@ public class BayarActivity extends AppCompatActivity   {
     Integer u10 = 0 ;
 
     Intent i;
+    Integer bayar;
+    Integer ttl;
 
     Locale localeID = new Locale("in", "ID");
     NumberFormat format = NumberFormat.getNumberInstance(localeID);
@@ -104,19 +107,28 @@ public class BayarActivity extends AppCompatActivity   {
     public void play(Integer number) {
 
         TextView tvBayar = (TextView) findViewById(R.id.tb0);
-        tvBayar.setText(format.format((u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100)));
+        tvBayar.setText("Rp "+format.format((u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100)));
         Log.e(""+ (u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100),"Ttl");
     }
 
     public void Nota(View view) {
 
-        Intent intent = new Intent(BayarActivity.this, BayarActivity.class);
+        bayar = (u1*100000 + u2*50000 + u3*20000 + u4*10000 + u5*5000 + u6*2000 + u7*1000 + u8*500 + u9*200 + u10*100);
+        ttl = nota.getTotalHarga();
 
-        intent.putExtra("Bayar", Integer.valueOf(u1*100000 + u2*50000 + u3*20000 + u4*10000 + u5*5000 + u6*2000 + u7*1000 + u8*500 + u9*200 + u10*100));
+        if(bayar >= ttl){
 
-        Singleton.getInstance().setNota(nota);
+            Intent intent = new Intent(BayarActivity.this, NotaActivity.class);
 
-        startActivity(intent);
+            intent.putExtra("Bayar", Integer.valueOf(u1*100000 + u2*50000 + u3*20000 + u4*10000 + u5*5000 + u6*2000 + u7*1000 + u8*500 + u9*200 + u10*100));
+
+            Singleton.getInstance().setNota(nota);
+
+            startActivity(intent);
+
+        } else {
+            Toast.makeText(this, "Pembayaran Kurang", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 
