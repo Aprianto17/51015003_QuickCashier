@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".BayarActivity" />
-        <activity android:name=".NotaActivity"></activity>
+        <activity android:name=".NotaActivity" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
