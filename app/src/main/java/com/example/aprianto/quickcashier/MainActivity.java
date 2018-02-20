@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
     private Button btBayar;
 
     private Nota nota;
+    private User user;
+
 
     Integer ttl;
 
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        user = getIntent().getParcelableExtra("user");
 
         tvTotal = (TextView) findViewById(R.id.tvTotal);
         tvTotal.setText(format.format(0));
