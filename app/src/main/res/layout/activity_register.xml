@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#3c5bc1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="16dp"
@@ -12,51 +11,79 @@
     android:paddingTop="16dp"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.aprianto.quickcashier.LoginActivity">
+    android:background="#3c5bc1"
+    tools:context="com.example.aprianto.quickcashier.RegisterActivity">
+
+
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@mipmap/ic_login"/>
+        android:src="@mipmap/ic_regis"/>
 
     <TextView
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Register"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_marginBottom="20dp"/>
 
     <EditText
         android:background="@drawable/login"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/etNomorHp"
-        android:inputType="number"
+        android:id="@+id/etName"
+        android:inputType="text"
         android:maxLines="1"
-        android:hint="Nomor Hp"
-        android:gravity="center"
+        android:hint="Nama"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginBottom="10dp"/>
 
 
+    <EditText
+        android:gravity="center"
+        android:background="@drawable/login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/etTlp"
+        android:inputType="number"
+        android:maxLines="1"
+        android:hint="Nomor.Hp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:gravity="center"
+        android:background="@drawable/login"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/etEmail"
+        android:inputType="text"
+        android:maxLines="1"
+        android:hint="Email"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginBottom="10dp"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/btLogin"
+        android:text="Register"
+        android:id="@+id/btRegister"
         android:layout_marginBottom="20dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click here to register"
+        android:text="Click here to login"
         android:textSize="20dp"
         android:gravity="center"
-        android:textColor="#808080"
-        android:id="@+id/btRegister"/>
+        android:id="@+id/btLogin"/>
 
 
 
