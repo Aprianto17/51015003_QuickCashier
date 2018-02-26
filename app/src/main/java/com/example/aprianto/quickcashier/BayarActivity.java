@@ -18,6 +18,7 @@ public class BayarActivity extends AppCompatActivity   {
     private Button bt_nota;
 
     Nota nota;
+    User user;
 
     Integer u1 = 0 ;
     Integer u2 = 0 ;
@@ -42,6 +43,8 @@ public class BayarActivity extends AppCompatActivity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bayar);
+
+        user = getIntent().getParcelableExtra("user");
 
         nota = Singleton.getInstance().getNota();
 //        nota = getIntent().getParcelableExtra("nota");
@@ -119,6 +122,8 @@ public class BayarActivity extends AppCompatActivity   {
         if(bayar >= ttl){
 
             Intent intent = new Intent(BayarActivity.this, NotaActivity.class);
+
+            intent.putExtra("user",user);
 
             intent.putExtra("Bayar", Integer.valueOf(u1*100000 + u2*50000 + u3*20000 + u4*10000 + u5*5000 + u6*2000 + u7*1000 + u8*500 + u9*200 + u10*100));
 

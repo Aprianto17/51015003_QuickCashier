@@ -43,8 +43,9 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.profil) {
-            startActivity(new Intent(MainActivity.this, MainActivity.class));
-            finish();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//            intent.putExtra("user",user);
+            startActivity(intent);
         }
         return true;
     }
@@ -57,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
         setContentView(R.layout.activity_main);
 
         user = getIntent().getParcelableExtra("user");
+
+
+
+        if ( user == null){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+
 
         tvTotal = (TextView) findViewById(R.id.tvTotal);
         tvTotal.setText(format.format(0));
@@ -94,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
                 } else {
                     Intent intent = new Intent(MainActivity.this, BayarActivity.class);
 //                intent.putExtra("nota",nota);
+                    intent.putExtra("user",user);
                     Singleton.getInstance().setNota(nota);
 
                     startActivity(intent);

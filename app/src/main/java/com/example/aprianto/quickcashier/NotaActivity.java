@@ -12,10 +12,12 @@ import java.util.Locale;
 
 public class NotaActivity extends AppCompatActivity {
 
-    private TextView tvTotal, tvBayar, tvKembali;
+    private TextView tvTotal, tvBayar, tvKembali, tvNama, tvNomor, tvEmail ;
     private Button btHome;
 
     private Nota nota;
+
+    User user;
 
     private Integer kembali;
     private int nilai1;
@@ -34,7 +36,16 @@ public class NotaActivity extends AppCompatActivity {
         tvTotal = (TextView) findViewById(R.id.tvTotal);
         tvBayar = (TextView) findViewById(R.id.tvBayar);
         tvKembali = (TextView) findViewById(R.id.tvKembali);
+        tvNama = (TextView) findViewById(R.id.tvNama);
+        tvNomor = (TextView) findViewById(R.id.tvNomor);
+        tvEmail = (TextView) findViewById(R.id.tvEmail);
         btHome = (Button) findViewById(R.id.btHome);
+
+        user = getIntent().getParcelableExtra("user");
+
+        tvNama.setText(user.getNama());
+        tvEmail.setText(user.getEmail());
+        tvNomor.setText(user.getTelepon());
 
         Intent tampil = getIntent();
         Integer Bayar = tampil.getIntExtra("Bayar",0);
@@ -56,6 +67,7 @@ public class NotaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NotaActivity.this, MainActivity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
             }
         });
