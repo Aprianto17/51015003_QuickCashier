@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +15,8 @@ import java.util.Locale;
 
 public class BayarActivity extends AppCompatActivity   {
 
-    public TextView tvTtl, tvBayar ;
-    private Button bt_nota;
+    private TextView tvTtl, tvBayar ;
+    private ImageView ivClose;
 
     Nota nota;
     User user;
@@ -50,10 +51,20 @@ public class BayarActivity extends AppCompatActivity   {
 //        nota = getIntent().getParcelableExtra("nota");
 
         tvTtl = (TextView) findViewById(R.id.tvTtl);
-        bt_nota = (Button) findViewById(R.id.btNota);
+        ivClose = (ImageView) findViewById(R.id.ivClose);
 
         tvTtl.setText("Rp "+format.format(nota.getTotalHarga()));
         Log.e(nota.getTotalHarga().toString(),"Ttl");
+
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BayarActivity.this, BayarActivity.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
@@ -110,6 +121,7 @@ public class BayarActivity extends AppCompatActivity   {
     public void play(Integer number) {
 
         TextView tvBayar = (TextView) findViewById(R.id.tb0);
+//        tvBayar.setText("");
         tvBayar.setText("Rp "+format.format((u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100)));
         Log.e(""+ (u1*100000+u2*50000+u3*20000+u4*10000+u5*5000+u6*2000+u7*1000+u8*500+u9*200+u10*100),"Ttl");
     }
@@ -135,5 +147,6 @@ public class BayarActivity extends AppCompatActivity   {
             Toast.makeText(this, "Pembayaran Kurang", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
 
