@@ -42,11 +42,14 @@ public class MainActivity extends AppCompatActivity implements ViewInterface  {
     //Daftar menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.profil) {
+        if (item.getItemId() == R.id.log_out) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 //            intent.putExtra("user",user);
             startActivity(intent);
-        }
+        } else if (item.getItemId() == R.id.profil) {
+            Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);        }
         return true;
     }
 
